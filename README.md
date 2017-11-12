@@ -12,7 +12,7 @@ $ pip install exifread
 # 用法
 
 ```
-./format-img.py [-s suffix -f format | -h help]
+$ ./format-img.py [-s suffix -f format | -h help]
 ```
 
 * `-s` 要格式化文件名的的后缀名，需要用引号括起来，比如`-s 'jpg,png'`，不区分大小写
@@ -45,6 +45,12 @@ $ pip install exifread
 
 * `-h` 获取帮助
 
+## 例
+
+把当前目录下的`jpg`和`png`文件的名称格式化成`2017-10-01 10:17:01`的形式
+```
+$ ./format-img.py -s "jpg,png" -f "%Y-%m-%d %H:%M:%S"
+```
 
 # 其他
 
