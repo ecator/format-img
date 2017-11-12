@@ -43,5 +43,5 @@ def getFileSuffix(filename=''):
 
 if __name__ == '__main__':
 	'模块测试'
-	print getFileSuffix('fsdfsd')
+	#print getFileSuffix('file.suffix')
 	#print getImgs()
