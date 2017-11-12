@@ -41,6 +41,8 @@ def main():
 			print "%-25s\t→\t%-25s\tfailed"%(img,img_new_name)
 			raise e
 			ng_cnt+=1
+
+	#输出统计信息
 	print "\nProcess completed\nSuccess：%d\nFailed：%d"%(ok_cnt,ng_cnt)	
 		
 if __name__ == '__main__':
@@ -48,7 +50,7 @@ if __name__ == '__main__':
 	Format=''
 	Suffixs=[]
 	try:
-		options,args=getopt.getopt(sys.argv[1:],'s:f:')
+		options,args=getopt.getopt(sys.argv[1:],'hs:f:')
 		for option,value in options:
 			if option=='-f':
 				Format=value
@@ -56,6 +58,7 @@ if __name__ == '__main__':
 				Suffixs=value.split(',')
 			elif option=='-h':
 				print HELP
+				exit()
 	except Exception as e:
 		raise e
 	finally:
