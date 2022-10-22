@@ -10,7 +10,12 @@ import exifread
 import time
 
 
-HELP = "format-img.py [-s suffix -f format | -h help]"
+HELP = """
+format-img.py
+            [-f format]   default read from config.ini
+            [-s suffixs]  default read from config.ini
+            -h
+"""
 
 
 def main():
