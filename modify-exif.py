@@ -14,8 +14,8 @@ modify-exif.py
               -f file -rt [-s]                 read datetime_original and datetime_digitized, only output value if s is set
               -f file -w property -v value     write property
               -f file -wt -v value             write datetime_original and datetime_digitized
-              -f file 
-              -h help"""
+              -h                               help
+"""
 
 
 processFile = ""

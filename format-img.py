@@ -14,7 +14,7 @@ HELP = """
 format-img.py
             [-f format]   default read from config.ini
             [-s suffixs]  default read from config.ini
-            -h
+            -h            help
 """
 
 
