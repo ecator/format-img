@@ -2,7 +2,7 @@
 ## 根据EXIF信息来格式化图片到名字，方便管理
 
 # 环境
-python2.7 + [exifread](https://github.com/ianare/exif-py)
+python3 + [exifread](https://github.com/ianare/exif-py)
 
 如果没有安装exifread需要安装：
 ```
