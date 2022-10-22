@@ -2,17 +2,24 @@
 ## 根据EXIF信息来格式化图片到名字，方便管理
 
 # 环境
-python3 + [exifread](https://github.com/ianare/exif-py)
+python3
 
-如果没有安装exifread需要安装：
+运行下面命令安装依赖包：
 ```
-$ pip install exifread
+pip install -r requirement.txt
 ```
 
 # 用法
 
+## format-img.py
+
+### 基本用法
+
 ```
-$ ./format-img.py [-s suffix -f format | -h help]
+format-img.py
+            [-f format]   default read from config.ini
+            [-s suffixs]  default read from config.ini
+            -h            help
 ```
 
 * `-s` 要格式化文件名的的后缀名，需要用引号括起来，比如`-s 'jpg,png'`，不区分大小写
@@ -45,17 +52,36 @@ $ ./format-img.py [-s suffix -f format | -h help]
 
 * `-h` 获取帮助
 
-## 例
+### 例
 
 把当前目录下的`jpg`和`png`文件的名称格式化成`2017-10-01 10:17:01`的形式
 ```
-$ ./format-img.py -s "jpg,png" -f "%Y-%m-%d %H:%M:%S"
+./format-img.py -s "jpg,png" -f "%Y-%m-%d %H:%M:%S"
 ```
 
-# 其他
+### 其他
 
 如果不带参数运行脚本则读取`./config.ini`中`default`节中的配置。
 
 建议以alias方式运行本脚本，比如在`~/.bash_profile`文件中加入`alias format-img='format-img.py全路径'`，这样就可以在任意一个文件夹运行脚本了。
 
 文件查找只查找当前目录，无法查找子目录。
+
+
+## modify-exif.py
+
+用于修正EXIF信息。
+
+### 基本用法
+
+```
+modify-exif.py
+              -f file -r property [-s]         read property, only output value if s is set
+              -f file -rt [-s]                 read datetime_original and datetime_digitized, only output value if s is set
+              -f file -w property -v value     write property
+              -f file -wt -v value             write datetime_original and datetime_digitized
+              -h                               help
+```
+
+具体示例可以参考`update-datetime.ps1`，可以修改目标文件夹里面的`yyyyMMddHHmmss`这样命名规则的图片EXIF时间信息。
+
