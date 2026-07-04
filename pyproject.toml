@@ -1,0 +1,21 @@
+[project]
+name = "format-img"
+version = "0.1.0"
+description = "A python tool to format images based on EXIF information and edit EXIF data."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "exif>=1.3.5",
+    "exifread>=2.3.2",
+]
+
+[project.scripts]
+format-img = "format_img.format_img:main"
+modify-exif = "format_img.modify_exif:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/format_img"]

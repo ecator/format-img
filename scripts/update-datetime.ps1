@@ -20,6 +20,7 @@ param (
     [switch]$Recurse
 )
 
+$ProjectDir = (Resolve-Path "$PSScriptRoot\..").Path
 
 <#
 .DESCRIPTION
@@ -42,10 +43,10 @@ else {
     $files = Get-ChildItem -LiteralPath $Folder -Filter "*.${Suffix}"
 }
 foreach ( $f in $files) {
-    $v = $(python .\modify-exif.py -f $f.FullName -rt -s)
+    $v = $(uv run --project "$ProjectDir" modify-exif -f $f.FullName -rt -s)
     if ($v.count -eq 0) {
         $dateTime = $(formatDatetime $f.Name)
-        python .\modify-exif.py -f $f.FullName -wt -v $dateTime
+        uv run --project "$ProjectDir" modify-exif -f $f.FullName -wt -v $dateTime
     }
 }
 
