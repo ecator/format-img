@@ -1,6 +1,6 @@
 [project]
 name = "format-img"
-version = "0.1.0"
+dynamic = ["version"]
 description = "A python tool to format images based on EXIF information and edit EXIF data."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -14,8 +14,11 @@ format-img = "format_img.format_img:main"
 modify-exif = "format_img.modify_exif:main"
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling","hatch-vcs"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/format_img"]
+
+[tool.hatch.version]
+source = "vcs"

@@ -5,7 +5,23 @@
 
 本工具使用 `uv` 管理依赖和运行环境。
 
-### 安装依赖并同步环境：
+### 免克隆直接运行（推荐）
+
+如果不想克隆整个仓库，可以直接使用 `uvx`（即 `uv tool run`）来运行本工具：
+
+- **format-img**:
+  ```bash
+  uvx format-img [参数]
+  ```
+- **modify-exif**:
+  ```bash
+  uvx --from format-img modify-exif [参数]
+  ```
+
+### 克隆本地仓库运行
+
+如果克隆了整个仓库，需要先安装依赖并同步环境：
+
 ```bash
 uv sync
 ```
